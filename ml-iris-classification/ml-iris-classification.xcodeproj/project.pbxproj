@@ -11,6 +11,9 @@
 		01703A8829B2024300A464A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01703A8729B2024300A464A7 /* ContentView.swift */; };
 		01703A8A29B2024500A464A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01703A8929B2024500A464A7 /* Assets.xcassets */; };
 		01703A8E29B2024500A464A7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01703A8D29B2024500A464A7 /* Preview Assets.xcassets */; };
+		01703A9829B23EA700A464A7 /* iris.names in Resources */ = {isa = PBXBuildFile; fileRef = 01703A9629B23EA700A464A7 /* iris.names */; };
+		01703A9929B23EA700A464A7 /* iris.data in Resources */ = {isa = PBXBuildFile; fileRef = 01703A9729B23EA700A464A7 /* iris.data */; };
+		01703A9C29B2411400A464A7 /* IrisClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01703A9B29B2411400A464A7 /* IrisClassifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,9 @@
 		01703A8929B2024500A464A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01703A8B29B2024500A464A7 /* ml_iris_classification.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ml_iris_classification.entitlements; sourceTree = "<group>"; };
 		01703A8D29B2024500A464A7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		01703A9629B23EA700A464A7 /* iris.names */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iris.names; sourceTree = "<group>"; };
+		01703A9729B23EA700A464A7 /* iris.data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iris.data; sourceTree = "<group>"; };
+		01703A9B29B2411400A464A7 /* IrisClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IrisClassifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +58,10 @@
 		01703A8429B2024300A464A7 /* ml-iris-classification */ = {
 			isa = PBXGroup;
 			children = (
+				01703A9D29B24E7700A464A7 /* Views */,
+				01703A9A29B2404700A464A7 /* Model */,
+				01703A9529B23E2800A464A7 /* Resources */,
 				01703A8529B2024300A464A7 /* ml_iris_classificationApp.swift */,
-				01703A8729B2024300A464A7 /* ContentView.swift */,
 				01703A8929B2024500A464A7 /* Assets.xcassets */,
 				01703A8B29B2024500A464A7 /* ml_iris_classification.entitlements */,
 				01703A8C29B2024500A464A7 /* Preview Content */,
@@ -67,6 +75,31 @@
 				01703A8D29B2024500A464A7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		01703A9529B23E2800A464A7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				01703A9729B23EA700A464A7 /* iris.data */,
+				01703A9629B23EA700A464A7 /* iris.names */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		01703A9A29B2404700A464A7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				01703A9B29B2411400A464A7 /* IrisClassifier.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		01703A9D29B24E7700A464A7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				01703A8729B2024300A464A7 /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +161,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01703A9929B23EA700A464A7 /* iris.data in Resources */,
+				01703A9829B23EA700A464A7 /* iris.names in Resources */,
 				01703A8E29B2024500A464A7 /* Preview Assets.xcassets in Resources */,
 				01703A8A29B2024500A464A7 /* Assets.xcassets in Resources */,
 			);
@@ -162,6 +197,7 @@
 			files = (
 				01703A8829B2024300A464A7 /* ContentView.swift in Sources */,
 				01703A8629B2024300A464A7 /* ml_iris_classificationApp.swift in Sources */,
+				01703A9C29B2411400A464A7 /* IrisClassifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
