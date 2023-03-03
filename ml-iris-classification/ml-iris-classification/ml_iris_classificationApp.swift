@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import KNN
 
 @main
 struct ml_iris_classificationApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().onAppear {
+                let op = KNN.Greeting().greet()
+                print(op)
+            }
         }
     }
 }
