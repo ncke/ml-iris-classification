@@ -50,4 +50,53 @@ class KNNDataSetTests {
         assertEquals(10, sut.size())
     }
 
+    @Test
+    fun testClassify() {
+        val sut = makePopulatedDataSet()
+
+        var before = 0
+        for (example in sut.examples()) {
+            if (example.knnClassification != null)
+                before += 1
+        }
+        assertEquals(0, before)
+
+        sut.classify(3,7)
+
+        var after = 0
+        for (example in sut.examples()) {
+            if (example.knnClassification != null)
+                after += 1
+        }
+        assertEquals(3, after)
+    }
+
+    @Test
+    fun testResetClassifications() {
+        val sut = makePopulatedDataSet()
+        sut.classify(3,7)
+
+        var before = 0
+        for (example in sut.examples()) {
+            if (example.knnClassification != null)
+                before += 1
+        }
+        assertEquals(3, before)
+
+        sut.resetKNNClassifications()
+
+        var after = 0
+        for (example in sut.examples()) {
+            if (example.knnClassification != null)
+                after += 1
+        }
+        assertEquals(0, after)
+    }
+
+    @Test
+    fun testFeatureCount() {
+        val sut = makePopulatedDataSet()
+        assertEquals(3,sut.featureCount())
+    }
+
 }
