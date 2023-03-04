@@ -9,6 +9,7 @@ import Combine
 import Foundation
 import KNN
 
+// MARK: - Iris Classifier
 
 class IrisClassifier: ObservableObject {
     
@@ -37,6 +38,8 @@ class IrisClassifier: ObservableObject {
     
 }
 
+// MARK: - Variety
+
 extension IrisClassifier {
     
     enum Variety: Int, CustomStringConvertible {
@@ -63,6 +66,8 @@ extension IrisClassifier {
     }
     
 }
+
+// MARK: - Resource Helper
 
 extension IrisClassifier {
     
