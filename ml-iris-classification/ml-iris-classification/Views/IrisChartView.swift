@@ -30,15 +30,14 @@ struct IrisChartView: View {
             
             ForEach(0..<examples.count, id: \.self) { idx in
                 let example = examples[idx]
-                
-                let categoryName = categoryName(for: mode)
-                let groupName = groupName(for: example, mode: mode)
-                let x = Double(truncating: example.features[0])
-                let y = Double(truncating: example.features[1])
+                let categoryName = categoryName(mode: mode)
+                let groupName = groupName(example: example, mode: mode)
+                let xPosn = Double(truncating: example.features[0])
+                let yPosn = Double(truncating: example.features[1])
                 
                 PointMark(
-                    x: .value("Sepal length", x),
-                    y: .value("Sepal width", y)
+                    x: .value("Sepal length", xPosn),
+                    y: .value("Sepal width", yPosn)
                 )
                 .foregroundStyle(
                     by: .value(categoryName, groupName))
@@ -51,7 +50,7 @@ struct IrisChartView: View {
         )
         .chartXScale(domain: .automatic(includesZero: false))
         .chartYScale(domain: .automatic(includesZero: false))
-        .chartLegend(position: .overlay, alignment: .bottomTrailing)
+        .chartLegend(position: .overlay, alignment: .bottomLeading)
     }
     
 }
@@ -60,7 +59,7 @@ struct IrisChartView: View {
 
 extension IrisChartView {
     
-    func categoryName(for mode: Mode) -> String {
+    private func categoryName(mode: Mode) -> String {
         switch mode {
         case .varieties: return "Variety"
         case .membership: return "Dataset"
@@ -68,19 +67,17 @@ extension IrisChartView {
         }
     }
     
-    func groupName(for example: KNNDataSet.Example, mode: Mode) -> String {
+    private func groupName(example: KNNDataSet.Example, mode: Mode) -> String {
         switch mode {
         case .varieties:
             let known = Int(example.knownClassification)
-            let iris = IrisClassifier.IrisClass(rawValue: known)!
+            let iris = IrisClassifier.Variety(rawValue: known)!
             return iris.description
-            
         case .membership:
             return example.knnClassification != nil ? "Test Set" : "Training Set"
-            
         case .knnOutcome:
             guard let knnClassification = example.knnClassification else {
-                return "Not Classified"
+                return "Training Set"
             }
             
             let knn = Int(truncating: knnClassification)
@@ -89,23 +86,23 @@ extension IrisChartView {
         }
     }
     
-    func domain(mode: Mode) -> [String] {
+    private func domain(mode: Mode) -> [String] {
         switch mode {
         case .varieties:
             return [ "Iris Setosa", "Iris Versicolour", "Iris Virginica" ]
         case .membership:
             return [ "Training Set", "Test Set" ]
         case .knnOutcome:
-            return [ "Succeeded", "Failed", "Not Classified" ]
+            return [ "Succeeded", "Failed", "Training Set" ]
         }
     }
     
-    func range(mode: Mode) -> [Color] {
+    private func range(mode: Mode) -> [Color] {
         switch mode {
         case .varieties:
             return [ .red, .green, .blue ]
         case .membership:
-            return [ .green, .red ]
+            return [ .blue, .yellow ]
         case .knnOutcome:
             return [ .green, .red, .gray ]
         }
