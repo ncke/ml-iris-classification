@@ -44,6 +44,9 @@ The plot has three modes:
 - Iris varieties are colour-coded as Setosa, Versicolour, or Virginica.
 - Data set membership shows whether each example is in the training data or was used as test data.
 - KNN outcome labels successful predictions in green and failed predictions in red. Training data is not used for prediction (so grey).
+
+#### The application running as a macOS app.
+![image](https://github.com/ncke/ml-iris-classification/blob/7c85f28aaac44477baaf8b329a55d06119ecd207/screenshots/macos-app.png)
 ## Conclusions.
 
 Kotlin Multiplatform is a workable alternative for code sharing. Some frameworks, such as Flutter or React Native, require that the entirety of the application is developed inside the framework wrapper. KML, however, is unopiniated about the boundary between native code and shared code. This makes it particularly suitable for building shared libraries.
