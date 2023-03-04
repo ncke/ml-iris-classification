@@ -11,7 +11,7 @@ import SwiftUI
 struct ml_iris_classificationApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ClassifierView()
         }
     }
 }

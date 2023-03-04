@@ -8,24 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		01703A8629B2024300A464A7 /* ml_iris_classificationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01703A8529B2024300A464A7 /* ml_iris_classificationApp.swift */; };
-		01703A8829B2024300A464A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01703A8729B2024300A464A7 /* ContentView.swift */; };
+		01703A8829B2024300A464A7 /* ClassifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01703A8729B2024300A464A7 /* ClassifierView.swift */; };
 		01703A8A29B2024500A464A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01703A8929B2024500A464A7 /* Assets.xcassets */; };
 		01703A8E29B2024500A464A7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01703A8D29B2024500A464A7 /* Preview Assets.xcassets */; };
 		01703A9829B23EA700A464A7 /* iris.names in Resources */ = {isa = PBXBuildFile; fileRef = 01703A9629B23EA700A464A7 /* iris.names */; };
 		01703A9929B23EA700A464A7 /* iris.data in Resources */ = {isa = PBXBuildFile; fileRef = 01703A9729B23EA700A464A7 /* iris.data */; };
 		01703A9C29B2411400A464A7 /* IrisClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01703A9B29B2411400A464A7 /* IrisClassifier.swift */; };
+		01703A9F29B283A000A464A7 /* IrisChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01703A9E29B283A000A464A7 /* IrisChartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		01703A8229B2024300A464A7 /* ml-iris-classification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ml-iris-classification.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		01703A8229B2024300A464A7 /* Iris Classifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Iris Classifier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01703A8529B2024300A464A7 /* ml_iris_classificationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ml_iris_classificationApp.swift; sourceTree = "<group>"; };
-		01703A8729B2024300A464A7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		01703A8729B2024300A464A7 /* ClassifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifierView.swift; sourceTree = "<group>"; };
 		01703A8929B2024500A464A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01703A8B29B2024500A464A7 /* ml_iris_classification.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ml_iris_classification.entitlements; sourceTree = "<group>"; };
 		01703A8D29B2024500A464A7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		01703A9629B23EA700A464A7 /* iris.names */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iris.names; sourceTree = "<group>"; };
 		01703A9729B23EA700A464A7 /* iris.data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iris.data; sourceTree = "<group>"; };
 		01703A9B29B2411400A464A7 /* IrisClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IrisClassifier.swift; sourceTree = "<group>"; };
+		01703A9E29B283A000A464A7 /* IrisChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IrisChartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +52,7 @@
 		01703A8329B2024300A464A7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				01703A8229B2024300A464A7 /* ml-iris-classification.app */,
+				01703A8229B2024300A464A7 /* Iris Classifier.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,7 +99,8 @@
 		01703A9D29B24E7700A464A7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				01703A8729B2024300A464A7 /* ContentView.swift */,
+				01703A8729B2024300A464A7 /* ClassifierView.swift */,
+				01703A9E29B283A000A464A7 /* IrisChartView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -120,7 +123,7 @@
 			);
 			name = "ml-iris-classification";
 			productName = "ml-iris-classification";
-			productReference = 01703A8229B2024300A464A7 /* ml-iris-classification.app */;
+			productReference = 01703A8229B2024300A464A7 /* Iris Classifier.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -195,8 +198,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01703A8829B2024300A464A7 /* ContentView.swift in Sources */,
+				01703A8829B2024300A464A7 /* ClassifierView.swift in Sources */,
 				01703A8629B2024300A464A7 /* ml_iris_classificationApp.swift in Sources */,
+				01703A9F29B283A000A464A7 /* IrisChartView.swift in Sources */,
 				01703A9C29B2411400A464A7 /* IrisClassifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,7 +352,7 @@
 					KNN,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ncke.ml-iris-classification";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Iris Classifier";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -392,7 +396,7 @@
 					KNN,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ncke.ml-iris-classification";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Iris Classifier";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
