@@ -12,30 +12,24 @@ import KNN
 
 class IrisClassifier: ObservableObject {
     
-    let k = 3
-    
     @Published var data: KNNDataSet
     
-    @Published var trainingSetSize: Int = 0 {
-        didSet {
-            recompute()
-        }
+    @Published var k = 3 {
+        didSet { reclassify() }
     }
     
-    var dataSetSize: Int {
-        return Int(data.size())
+    @Published var trainingSetSize = 0 {
+        didSet { reclassify() }
     }
+    
+    var dataSetSize: Int { Int(data.size()) }
     
     init() {
         data = IrisClassifier.readData()
         trainingSetSize = Int(data.size()) / 2
     }
     
-}
-
-extension IrisClassifier {
-    
-    private func recompute() {
+    private func reclassify() {
         let kk = Int32(k)
         let sz = Int32(trainingSetSize)
         data = data.classify(k: kk, trainingSetSize: sz)
@@ -45,7 +39,7 @@ extension IrisClassifier {
 
 extension IrisClassifier {
     
-    enum IrisClass: Int, CustomStringConvertible {
+    enum Variety: Int, CustomStringConvertible {
         case setosa
         case versicolour
         case virginica
@@ -55,7 +49,7 @@ extension IrisClassifier {
             case "Iris-setosa": self = .setosa
             case "Iris-versicolor": self = .versicolour
             case "Iris-virginica": self = .virginica
-            default: fatalError()
+            default: fatalError("Unexpected iris name in the data set.")
             }
         }
         
@@ -74,8 +68,16 @@ extension IrisClassifier {
     
     private static func readData() -> KNNDataSet {
         let dataSet = KNNDataSet()
-        let url = Bundle.main.url(forResource: "iris", withExtension: "data")!
-        let content = try! String(contentsOf: url)
+        
+        guard
+            let url = Bundle.main.url(
+                forResource: "iris",
+                withExtension: "data"),
+            let content = try? String(contentsOf: url)
+        else {
+            fatalError("Could not load iris data set.")
+        }
+        
         let records = content.components(separatedBy: .newlines)
         let commas = CharacterSet(charactersIn: ",")
         
@@ -84,12 +86,14 @@ extension IrisClassifier {
             guard fields.count == 5 else { continue }
             
             let irisFeatures = fields.prefix(4).map { str in
-                guard let feature = Double(str) else { fatalError() }
+                guard let feature = Double(str) else {
+                    fatalError("Expected a double, got: \(str)")
+                }
                 return KotlinDouble(value: feature)
             }
             
             let irisName = fields.suffix(1).first!
-            let irisClass = Int32(IrisClass(dataName: irisName).rawValue)
+            let irisClass = Int32(Variety(dataName: irisName).rawValue)
             
             dataSet.addExample(
                 knownClassification: irisClass,

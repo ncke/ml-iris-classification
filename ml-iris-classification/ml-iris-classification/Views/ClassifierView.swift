@@ -12,8 +12,6 @@ import SwiftUI
 struct ClassifierView: View {
     
     @State private var chartMode: IrisChartView.Mode = .varieties
-    @State private var sizeSlider: Double = 100
-    
     @StateObject private var irisClassifier = IrisClassifier()
     
     var body: some View {
@@ -24,56 +22,60 @@ struct ClassifierView: View {
                 data: $irisClassifier.data
             )
             
-            TrainingSizeSlider(
-                requestedSize: $irisClassifier.trainingSetSize,
-                initialSize: 100,
-                maximumSize: irisClassifier.dataSetSize
+            ChartModePicker(mode: $chartMode)
+            
+            IntegerSlider(
+                requestedSize: $irisClassifier.k,
+                text: "K nearest:",
+                maximumSize: 9
             )
             
-            ChartModePicker(mode: $chartMode)
+            IntegerSlider(
+                requestedSize: $irisClassifier.trainingSetSize,
+                text: "Size of training set:",
+                maximumSize: irisClassifier.dataSetSize
+            )
             
         }
         .padding()
     }
 }
 
-// MARK: - Training Size Slider
+// MARK: - Integer Slider
 
-fileprivate struct TrainingSizeSlider: View {
+private struct IntegerSlider: View {
     @Binding var requestedSize: Int
-    var initialSize: Int
+    var text: String
     var maximumSize: Int
     
     @State var sizeSlider: Double = 0.0
     
     var body: some View {
-        VStack {
-            HStack {
-                Text("Size of training set")
-                Spacer()
+        HStack {
+            Text(text)
+            
+            Slider(
+                value: $sizeSlider,
+                in: 1...Double(maximumSize),
+                step: 1.0
+            ) { isEditing in
+                guard !isEditing else { return }
+                let trainingSize = Int(sizeSlider)
+                requestedSize = trainingSize
+                
+            }.onAppear {
+                sizeSlider = Double(requestedSize)
             }
             
-            HStack {
-                Slider(
-                    value: $sizeSlider,
-                    in: 1...Double(maximumSize),
-                    step: 1.0
-                ) { isEditing in
-                        guard !isEditing else { return }
-                        let trainingSize = Int(sizeSlider)
-                        requestedSize = trainingSize
-                        
-                    }
-                Text("\(Int(sizeSlider))")
-            }
+            Text("\(Int(sizeSlider))")
         }
     }
+    
 }
 
 // MARK: - Chart Mode Picker
 
-fileprivate struct ChartModePicker: View {
-    
+private struct ChartModePicker: View {
     @Binding var mode: IrisChartView.Mode
     
     var body: some View {
