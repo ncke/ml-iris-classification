@@ -27,13 +27,15 @@ struct ClassifierView: View {
             IntegerSlider(
                 requestedSize: $irisClassifier.k,
                 text: "K nearest:",
-                maximumSize: 9
+                step: 1,
+                maximum: 9
             )
             
             IntegerSlider(
                 requestedSize: $irisClassifier.trainingSetSize,
                 text: "Size of training set:",
-                maximumSize: irisClassifier.dataSetSize
+                step: 5,
+                maximum: irisClassifier.dataSetSize
             )
             
         }
@@ -46,7 +48,8 @@ struct ClassifierView: View {
 private struct IntegerSlider: View {
     @Binding var requestedSize: Int
     var text: String
-    var maximumSize: Int
+    var step: Int
+    var maximum: Int
     
     @State var sizeSlider: Double = 0.0
     
@@ -56,11 +59,11 @@ private struct IntegerSlider: View {
             
             Slider(
                 value: $sizeSlider,
-                in: 1...Double(maximumSize),
-                step: 1.0
+                in: 0...Double(maximum),
+                step: Double(step)
             ) { isEditing in
                 guard !isEditing else { return }
-                let trainingSize = Int(sizeSlider)
+                let trainingSize = max(1, Int(sizeSlider))
                 requestedSize = trainingSize
                 
             }.onAppear {
