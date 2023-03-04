@@ -1,12 +1,12 @@
 # ml-iris-classification
 Sharing a KNN classifier with SwiftUI using a Kotlin Multiplatform Library.
 
-This project is a basic evaluation of Kotlin Multiplatform (KMP) as a way to share code between iOS, macOS, and Android applications.
+This project is a basic evaluation of Kotlin Multiplatform (KMP) as a mechanism to share code between iOS, macOS, and Android applications.
+
+A machine learning application to classify Iris varieties is the motivating use-case for code sharing. The objective is to implement the k-nearest neighbour (KNN) algorithm as a Kotlin Multiplatform library, and then use the library within a SwiftUI application.
 
 ## Background to the ML task.
-Classification of Iris varieties using k-nearest neighbour (KNN) is used as the motivating use-case for code sharing. The objective is to implement the KNN algorithm in Kotlin, and then use it within a SwiftUI application.
-
-The KNN algorithm is suitable for many classification problems. When challenged to make a prediction, it finds the k most-similar examples from a provided training set. Similarity is based on a distance metric, often the euclidean distance between the parameters of the challenge and a training set example. Since the classification of examples in the training set is known, a voting mechanism can be used to make a prediction based on the k-nearest.
+The KNN algorithm is suitable for many classification problems. When challenged to make a prediction, it finds the k most-similar examples from a provided training set. Similarity is based on a distance metric, often the euclidean distance between the parameters of the challenge and a training set example. Since the classification of examples in the training set is known, a voting mechanic can be used to make a prediction based on the k-nearest.
 
 Classifying Iris varieties from the Iris data set is a classic machine learning exercise. The data set consists of 150 examples, each having four measurements from an Iris specimen and the correct variety: either Iris Setosa, Iris Versicolour, or Iris Virginica. The ML task is to train a model that can predict the variety of further specimens given only the four measurements. Typically, a subset of the data set is used for training, while the remainder is used to test the trained model. KNN is known to be a suitable approach to this task.
 
