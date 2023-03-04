@@ -36,7 +36,9 @@ The plot has three modes:
 - 'KNN Outcome' focusses on test data, showing whether the classifier successfully predicted the variety.
 
 ### Screenshots.
-
+| Iris Varieties | Data Set Membership | KNN Outcome |
+|------------|------------|------------|
+|![image](https://github.com/ncke/ml-iris-classification/blob/5676d610b9825fa578de72ad87161a2c884304d7/screenshots/varieties.png)|![image](https://github.com/ncke/ml-iris-classification/blob/5676d610b9825fa578de72ad87161a2c884304d7/screenshots/set-membership.png)|![image](https://github.com/ncke/ml-iris-classification/blob/5676d610b9825fa578de72ad87161a2c884304d7/screenshots/knn-outcome.png)|
 
 ## Conclusions.
 
